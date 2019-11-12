@@ -1,11 +1,9 @@
-
+from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
 
+app_name='accounts'
 
 urlpatterns = [
-    path('entrar/', include('django.contrib.auth.login',
-                            {'template_name': 'accounts/login.html'},
-                            namespace='login')),
+    path('entrar/', LoginView.as_view(template_name='accounts/login.html'), name='login')
 ]
-
