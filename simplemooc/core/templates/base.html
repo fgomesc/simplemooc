@@ -18,7 +18,12 @@
                 <li class="pure-menu-selected"><a href="{% url 'home' %}">Início</a></li>
                 <li><a href="{% url 'courses:index' %}">Cursos</a></li>
                 <li><a href="{% url 'contact' %}">Contato</a></li>
-                <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'accounts:dashboard' %}">Painel</a></li>
+                <li><a href="{% url 'accounts:logout' %}">Sair</a></li>
+                {% else %}
+                <li><a href="{% url 'accounts:login' %}">Entrar</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
