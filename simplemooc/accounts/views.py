@@ -30,6 +30,7 @@ def register(request):
     }
     return render(request, template_name, context)
 
+
 def password_reset(request):
     template_name = 'accounts/password_reset.html'
     form = PasswordResetForm(request.POST or None)
@@ -42,7 +43,6 @@ def password_reset(request):
         context['success'] = True
     context['form'] = form
     return render(request, template_name, context)
-
 
 @login_required
 def edit(request):
